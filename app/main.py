@@ -1,6 +1,3 @@
-import sys
-sys.path.append('/app')
-
 from fastapi import FastAPI
 from app.endpoints import user as user_endpoints
 from app.database import config as database

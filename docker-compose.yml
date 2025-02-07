@@ -6,7 +6,7 @@ services:
     ports:
       - "${API_PORT}:${API_PORT}"
     volumes:
-      - ./app:/app
+      - .:/app
     environment:
       - MYSQL_HOST=${MYSQL_HOST}
       - MYSQL_USER=${MYSQL_USER}
