@@ -32,7 +32,8 @@ jobs:
 
       - name: Check if API server is running
         run: |
-          curl --fail http://127.0.0.1:8000 || (echo "API server is not running" && exit 1)
+            docker compose ps
+            curl http://localhost:8000
 
       - name: Run tests
         run: |
