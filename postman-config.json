@@ -103,6 +103,65 @@
           }
         }
       ]
+    },
+    {
+      "name": "Weather",
+      "item": [
+        {
+          "name": "Get Weather",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/weather?city=Paris&hourly=temperature_2m&daily=temperature_2m_max&timezone=auto",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["weather"],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "Paris"
+                },
+                {
+                  "key": "hourly",
+                  "value": "temperature_2m"
+                },
+                {
+                  "key": "daily",
+                  "value": "temperature_2m_max"
+                },
+                {
+                  "key": "timezone",
+                  "value": "auto"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Current Weather",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/current_weather?city=Paris&timezone=auto",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["current_weather"],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "Paris"
+                },
+                {
+                  "key": "timezone",
+                  "value": "auto"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [
