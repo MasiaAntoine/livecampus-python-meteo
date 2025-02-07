@@ -15,8 +15,8 @@ jobs:
 
       - name: Set up Docker Compose
         run: |
-          docker-compose up -d db
-          docker-compose up -d api
+          docker compose up -d db
+          docker compose up -d api
           sleep 15
 
       - name: Check if API server is running
@@ -25,4 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          docker-compose exec api pytest
+          docker compose exec api pytest
