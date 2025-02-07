@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.database import SessionLocal
+from app.database import config as database
 from app.models import user as models
 from app.crud import user as crud
 
@@ -8,7 +8,7 @@ router = APIRouter()
 
 # Dépendance pour obtenir la session de base de données
 def get_db():
-    db = SessionLocal()
+    db = database.SessionLocal()
     try:
         yield db
     finally:
