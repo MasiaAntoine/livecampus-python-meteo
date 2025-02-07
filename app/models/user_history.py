@@ -28,4 +28,4 @@ class UserHistory(Base):
     temperature = Column(Float, nullable=False)
     search_date = Column(DateTime, default=datetime.utcnow)
 
-    user = relationship("User", back_populates="user_histories")
+    user = relationship("User")
