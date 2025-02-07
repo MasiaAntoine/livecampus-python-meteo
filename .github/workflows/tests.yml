@@ -22,17 +22,16 @@ jobs:
           echo "MYSQL_DATABASE=meteo_db" >> .env
           echo "API_PORT=8000" >> .env
           echo "DB_PORT=3306" >> .env
-          echo "OPEN_METEO_BASE_URL=https://api.open-meteo.com" >> .env
-          echo "NOMINATIM_BASE_URL=https://nominatim.openstreetmap.org" >> .env
+          echo "OPEN_METEO_BASE_URL=https://api.open-meteo.com/v1" >> .env
+          echo "NOMINATIM_BASE_URL=https://nominatim.openstreetmap.org/search" >> .env
 
       - name: Start Docker services
         run: |
           docker compose up -d db
-
-          docker compose run --rm wait-for-db sh -c 'while ! nc -z db 3306; do sleep 1; done; echo "DB is ready"'
           docker compose up -d api
 
-          docker compose run --rm wait-for-api sh -c 'while ! curl -s http://api:8000 >/dev/null; do sleep 1; done'
+      - name: Wait for services to start
+        run: sleep 30
 
       - name: Run tests
         run: |
