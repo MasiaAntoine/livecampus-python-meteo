@@ -15,15 +15,15 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "MYSQL_HOST=db" >> .env
-          echo "MYSQL_USER=meteo_user" >> .env
-          echo "MYSQL_PASSWORD=meteo_password" >> .env
-          echo "MYSQL_ROOT_PASSWORD=meteo_root_password" >> .env
-          echo "MYSQL_DATABASE=meteo_db" >> .env
-          echo "API_PORT=8000" >> .env
-          echo "DB_PORT=3306" >> .env
-          echo "OPEN_METEO_BASE_URL=https://api.open-meteo.com/v1" >> .env
-          echo "NOMINATIM_BASE_URL=https://nominatim.openstreetmap.org/search" >> .env
+          echo "MYSQL_HOST=${{secrets.MYSQL_HOST}}" >> .env
+          echo "MYSQL_USER=${{secrets.MYSQL_USER}}" >> .env
+          echo "MYSQL_PASSWORD=${{secrets.MYSQL_PASSWORD}}" >> .env
+          echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "API_PORT=${{secrets.API_PORT}}" >> .env
+          echo "DB_PORT=${{secrets.DB_PORT}}" >> .env
+          echo "OPEN_METEO_BASE_URL=${{secrets.OPEN_METEO_BASE_URL}}" >> .env
+          echo "NOMINATIM_BASE_URL=${{secrets.NOMINATIM_BASE_URL}}" >> .env
 
       - name: Start Docker services
         run: |
