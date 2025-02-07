@@ -16,6 +16,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - OPEN_METEO_BASE_URL=${OPEN_METEO_BASE_URL}
+      - NOMINATIM_BASE_URL=${NOMINATIM_BASE_URL}
     depends_on:
       - db
     networks:
