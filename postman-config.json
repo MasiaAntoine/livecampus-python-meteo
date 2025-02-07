@@ -1,103 +1,108 @@
 {
   "info": {
-    "name": "User API",
+    "name": "Livecampus meteo API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Create User",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"username\": \"john_doe\",\n    \"password\": \"secret\",\n    \"email\": \"john@example.com\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8000/users/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["users", ""]
-        }
-      }
-    },
-    {
-      "name": "Get User by ID",
-      "request": {
-        "method": "GET",
-        "url": {
-          "raw": "http://localhost:8000/users/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["users", "1"]
-        }
-      }
-    },
-    {
-      "name": "List Users",
-      "request": {
-        "method": "GET",
-        "url": {
-          "raw": "http://localhost:8000/users/?skip=0&limit=10",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["users", ""],
-          "query": [
-            {
-              "key": "skip",
-              "value": "0"
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john_doe\",\n    \"password\": \"secret\",\n    \"email\": \"john@example.com\"\n}"
             },
-            {
-              "key": "limit",
-              "value": "10"
+            "url": {
+              "raw": "http://localhost:8000/users/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", ""]
             }
-          ]
-        }
-      }
-    },
-    {
-      "name": "Update User",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
           }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"email\": \"new_email@example.com\",\n    \"password\": \"new_password\"\n}"
         },
-        "url": {
-          "raw": "http://localhost:8000/users/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["users", "1"]
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", "1"]
+            }
+          }
+        },
+        {
+          "name": "List Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/users/?skip=0&limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", ""],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"new_email@example.com\",\n    \"password\": \"new_password\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8000/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", "1"]
+            }
+          }
         }
-      }
-    },
-    {
-      "name": "Delete User",
-      "request": {
-        "method": "DELETE",
-        "url": {
-          "raw": "http://localhost:8000/users/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["users", "1"]
-        }
-      }
+      ]
     }
   ],
   "variable": [
