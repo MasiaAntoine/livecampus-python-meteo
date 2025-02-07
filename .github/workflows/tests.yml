@@ -13,6 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Create .env file
+        run: |
+          echo "MYSQL_HOST=127.0.0.1" >> .env
+          echo "MYSQL_USER=meteo_user" >> .env
+          echo "MYSQL_PASSWORD=meteo_password" >> .env
+          echo "MYSQL_DATABASE=meteo_db" >> .env
+          echo "API_PORT=8000" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "OPEN_METEO_BASE_URL=https://api.open-meteo.com" >> .env
+          echo "NOMINATIM_BASE_URL=https://nominatim.openstreetmap.org" >> .env
+
       - name: Set up Docker Compose
         run: |
           docker compose up -d db
