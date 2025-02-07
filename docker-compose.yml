@@ -1,5 +1,8 @@
 version: '3.8'
 
+networks:
+  meteo_network:
+
 services:
   api:
     build: .
@@ -14,6 +17,8 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
     depends_on:
       - db
+    networks:
+      - meteo_network
 
   db:
     image: mariadb:latest
@@ -27,6 +32,8 @@ services:
       - mariadb_data:/var/lib/mysql
     ports:
       - "${DB_PORT}:3306"
+    networks:
+      - meteo_network
 
 volumes:
   mariadb_data:

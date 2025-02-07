@@ -6,3 +6,4 @@ mysqlclient==2.2.1
 sqlalchemy==2.0.25
 pydantic==2.6.1
 pymysql==1.0.3
+pydantic[email]>=2.0.0
