@@ -35,7 +35,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker compose exec api sh -c "pip install pytest && pytest"
+          docker compose exec api sh -c "pytest"
 
       - name: Cleanup
         if: always()
