@@ -3,10 +3,12 @@
 Cette application tourne sous Docker et est composée de deux conteneurs : un pour l'API et un autre pour l'application Python. L'application permet de récupérer la météo en utilisant l'API.
 
 ## URLs des APIs 🌐
+
 - `OPEN_METEO_BASE_URL`: https://api.open-meteo.com/v1
 - `NOMINATIM_BASE_URL`: https://nominatim.openstreetmap.org/search
 
 ## Fonctionnalités ✨
+
 - Système de compte utilisateur 👤
 - Historique des données météorologiques 📈
 
@@ -15,9 +17,9 @@ Cette application tourne sous Docker et est composée de deux conteneurs : un po
 1. Créez un fichier `.env` à la racine du projet et ajoutez les variables d'environnement nécessaires comme exemple avec le .envexemple
 
 2. Construisez et démarrez les conteneurs Docker :
-    ```bash
-    docker-compose up --build
-    ```
+   ```bash
+   docker-compose up --build
+   ```
 
 ## Utilisation 🚀
 
@@ -30,6 +32,7 @@ Un fichier de configuration Postman (`postman-config.json`) est fourni pour vous
 ## Dépendances 📦
 
 Voici la liste des dépendances utilisées dans ce projet :
+
 - `fastapi==0.109.2`
 - `uvicorn==0.27.1`
 - `requests==2.32.0`
@@ -43,3 +46,4 @@ Voici la liste des dépendances utilisées dans ce projet :
 - `pytest==8.3.4`
 - `httpx==0.28.1`
 - `pytest-asyncio==0.25.3`
+- `python-jose==3.3.0`

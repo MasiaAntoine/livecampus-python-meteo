@@ -22,10 +22,9 @@
               "raw": "{\n    \"username\": \"john_doe\",\n    \"password\": \"secret\",\n    \"email\": \"john@example.com\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8000/users/",
+              "raw": "{{base_url}}/users/",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["users", ""]
             }
           }
@@ -35,10 +34,9 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "http://localhost:8000/users/1",
+              "raw": "{{base_url}}/users/1",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["users", "1"]
             }
           }
@@ -48,10 +46,9 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "http://localhost:8000/users/?skip=0&limit=10",
+              "raw": "{{base_url}}/users/?skip=0&limit=10",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["users", ""],
               "query": [
                 {
@@ -81,10 +78,9 @@
               "raw": "{\n    \"email\": \"new_email@example.com\",\n    \"password\": \"new_password\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8000/users/1",
+              "raw": "{{base_url}}/users/1",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["users", "1"]
             }
           }
@@ -94,11 +90,43 @@
           "request": {
             "method": "DELETE",
             "url": {
-              "raw": "http://localhost:8000/users/1",
+              "raw": "{{base_url}}/users/1",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "john_doe",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "secret",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/token",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "path": ["token"]
             }
           }
         }
@@ -112,10 +140,9 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "http://localhost:8000/weather?city=Paris&hourly=temperature_2m&daily=temperature_2m_max&timezone=auto",
+              "raw": "{{base_url}}/weather?city=Paris&hourly=temperature_2m&daily=temperature_2m_max&timezone=auto",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["weather"],
               "query": [
                 {
@@ -143,10 +170,9 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "http://localhost:8000/current_weather?city=Paris&timezone=auto",
+              "raw": "{{base_url}}/current_weather?city=Paris&timezone=auto",
               "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
+              "host": ["{{base_url}}"],
               "path": ["current_weather"],
               "query": [
                 {
