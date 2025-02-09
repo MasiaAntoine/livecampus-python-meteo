@@ -104,3 +104,22 @@ def delete_user(db: Session, user_id: int):
         db.delete(db_user)
         db.commit()
     return db_user
+
+def authenticate_user(db: Session, username: str, password: str):
+    """
+    Authentifie un utilisateur.
+
+    Args:
+        db (Session): Session de base de données.
+        username (str): Nom d'utilisateur.
+        password (str): Mot de passe.
+
+    Returns:
+        User: L'utilisateur authentifié ou None.
+    """
+    user = get_user_by_username(db, username)
+    if not user:
+        return None
+    if not pwd_context.verify(password, user.password):
+        return None
+    return user
