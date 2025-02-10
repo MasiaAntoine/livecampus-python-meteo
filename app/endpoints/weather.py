@@ -84,35 +84,29 @@ def format_daily_message(weather_data: dict, city: str) -> str:
     Formate un message détaillé pour les prévisions météorologiques.
     Utilise les données horaires et journalières pour créer un message complet.
     """
-    # Récupération des données horaires
+    s
     hourly = weather_data.get("hourly", {})
     hourly_temps = hourly.get("temperature_2m", [])
-    current_hour_index = 0  # Première heure disponible
+    current_hour_index = 0
 
-    # Températures actuelles et prochaines heures
     current_temp = format_temperature(hourly_temps[current_hour_index])
     next_hours_temps = hourly_temps[current_hour_index:current_hour_index + 6]  # Prochaines 6 heures
     min_next_hours = format_temperature(min(next_hours_temps))
     max_next_hours = format_temperature(max(next_hours_temps))
 
-    # Données journalières
     daily = weather_data.get("daily", {})
     daily_max_temps = daily.get("temperature_2m_max", [])
     today_max = format_temperature(daily_max_temps[0]) if daily_max_temps else "N/A"
 
-    # Construction du message
     message = f"À {city}, il fait actuellement {current_temp}"
 
-    # Ajout de la tendance pour les prochaines heures
     if min_next_hours != max_next_hours:
         message += f". Dans les 6 prochaines heures, les températures oscilleront entre {min_next_hours} et {max_next_hours}"
     else:
         message += f". La température restera stable autour de {min_next_hours} pour les prochaines heures"
 
-    # Ajout du maximum journalier
     message += f". Le maximum attendu aujourd'hui est de {today_max}"
 
-    # Ajout des prévisions pour les prochains jours si disponibles
     if len(daily_max_temps) > 1:
         tomorrow_max = format_temperature(daily_max_temps[1])
         message += f". Demain, la température maximale sera de {tomorrow_max}"
@@ -124,8 +118,8 @@ def get_weather(
         request: Request,
         city: str,
         db: Session = Depends(get_db),
-        hourly: str = Query("temperature_2m"),  # Par défaut, on demande au moins la température
-        daily: str = Query("temperature_2m_max"),  # Par défaut, on demande au moins le maximum
+        hourly: str = Query("temperature_2m"),
+        daily: str = Query("temperature_2m_max"),
         timezone: str = "auto"
 ):
     try:
@@ -144,7 +138,6 @@ def get_weather(
             )
 
         if should_be_logged:
-            # Utiliser la première température horaire comme température actuelle
             current_temp = weather_data.get("hourly", {}).get("temperature_2m", [0.0])[0]
             user_history = UserHistoryCreate(
                 city=city,
