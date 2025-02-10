@@ -188,6 +188,51 @@
           }
         }
       ]
+    },
+    {
+      "name": "User History",
+      "item": [
+        {
+          "name": "Create User History",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"city\": \"Paris\",\n    \"latitude\": 48.8566,\n    \"longitude\": 2.3522,\n    \"temperature\": 15.0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user_histories/?user_id=1",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "path": ["user_histories", ""],
+              "query": [
+                {
+                  "key": "user_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Histories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/user_histories/1",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "path": ["user_histories", "1"]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [
