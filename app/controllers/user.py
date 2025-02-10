@@ -123,3 +123,29 @@ def authenticate_user(db: Session, username: str, password: str):
     if not pwd_context.verify(password, user.password):
         return None
     return user
+
+def save_user_token(db: Session, user_id: int, token: str):
+    """
+    Enregistre un token d'accès pour un utilisateur.
+
+    Args:
+        db (Session): Session de base de données.
+        user_id (int): Identifiant de l'utilisateur.
+        token (str): Token d'accès.
+    """
+    db_user = db.query(User).filter(User.id == user_id).first()
+    db_user.token = token
+    db.commit()
+
+def get_user_by_token(db: Session, token: str):
+    """
+    Récupère un utilisateur par son token.
+
+    Args:
+        db (Session): Session de base de données.
+        token (str): Token d'accès.
+
+    Returns:
+        User: L'utilisateur correspondant au token. Token is in User.access_token
+    """
+    return db.query(User).filter(User.token == token).first()

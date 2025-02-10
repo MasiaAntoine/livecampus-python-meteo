@@ -129,4 +129,6 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
     access_token = create_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
+    # save token in database
+    crud.save_user_token(db, user.id, access_token)
     return {"access_token": access_token, "token_type": "bearer"}
